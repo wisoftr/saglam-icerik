@@ -303,12 +303,12 @@ export default function Home() {
           </button>
         </div>
         {menuOpen && (
-          <div className="border-t border-white/10 bg-ink px-5 py-5 md:hidden">
+          <div className="mobile-menu-panel border-t border-white/10 bg-ink px-5 py-5 md:hidden">
             <div className="flex flex-col gap-4 text-sm font-semibold uppercase tracking-[0.14em] text-cream/70">
-              <a href="#hizmetler" onClick={() => setMenuOpen(false)}>Hizmetler</a>
-              <a href="#referanslar" onClick={() => setMenuOpen(false)}>Referanslar</a>
-              <a href="#surec" onClick={() => setMenuOpen(false)}>Süreç</a>
-              <a className="text-lime" href="#iletisim" onClick={() => setMenuOpen(false)}>Proje konuşalım →</a>
+              <a className="mobile-menu-item mobile-menu-item-1" href="#hizmetler" onClick={() => setMenuOpen(false)}>Hizmetler</a>
+              <a className="mobile-menu-item mobile-menu-item-2" href="#referanslar" onClick={() => setMenuOpen(false)}>Referanslar</a>
+              <a className="mobile-menu-item mobile-menu-item-3" href="#surec" onClick={() => setMenuOpen(false)}>Süreç</a>
+              <a className="mobile-menu-item mobile-menu-item-4 text-lime" href="#iletisim" onClick={() => setMenuOpen(false)}>Proje konuşalım →</a>
             </div>
           </div>
         )}
@@ -422,7 +422,7 @@ export default function Home() {
               { number: "03", icon: <Search size={24} />, title: "Büyüme & içerik", desc: "SEO, reklam, sosyal medya ve doğru mesajı doğru insana taşıyan içerik akışı.", tags: ["SEO", "Google Ads", "Sosyal medya"] },
               { number: "04", icon: <Bot size={24} />, title: "Sistem & otomasyon", desc: "CRM, lead yönetimi, B2B ve işinizi sessizce hızlandıran özel yazılımlar.", tags: ["CRM", "B2B", "Otomasyon"] },
             ].map((service) => (
-              <article key={service.number} data-reveal="up" className="group bg-paper p-8 transition-colors duration-200 hover:bg-[#e8e4d6] md:p-10">
+              <article key={service.number} data-reveal="up" data-reveal-delay={service.number} className="group bg-paper p-8 transition-colors duration-200 hover:bg-[#e8e4d6] md:p-10">
                 <div className="flex items-start justify-between">
                   <div className="flex h-12 w-12 items-center justify-center rounded-full border border-ink/15 text-cobalt transition-all duration-200 group-hover:border-cobalt group-hover:bg-cobalt group-hover:text-paper">{service.icon}</div>
                   <span className="font-display text-sm font-bold text-ink/30">{service.number}</span>

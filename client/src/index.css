@@ -119,6 +119,16 @@
   .reveal-ready [data-reveal].is-visible:nth-child(4) { transition-delay: 160ms; }
   .reveal-ready [data-reveal].is-visible:nth-child(5) { transition-delay: 210ms; }
   .reveal-ready [data-reveal].is-visible:nth-child(6) { transition-delay: 260ms; }
+  .reveal-ready [data-reveal][data-reveal-delay="01"].is-visible { transition-delay: 0ms; }
+  .reveal-ready [data-reveal][data-reveal-delay="02"].is-visible { transition-delay: 110ms; }
+  .reveal-ready [data-reveal][data-reveal-delay="03"].is-visible { transition-delay: 220ms; }
+  .reveal-ready [data-reveal][data-reveal-delay="04"].is-visible { transition-delay: 330ms; }
+  .mobile-menu-panel { transform-origin: top; animation: mobile-menu-in .24s cubic-bezier(.23,1,.32,1) both; }
+  .mobile-menu-item { display: block; transform: translate3d(0, -6px, 0); opacity: 0; animation: mobile-menu-item-in .32s cubic-bezier(.23,1,.32,1) forwards; }
+  .mobile-menu-item-1 { animation-delay: 45ms; }
+  .mobile-menu-item-2 { animation-delay: 85ms; }
+  .mobile-menu-item-3 { animation-delay: 125ms; }
+  .mobile-menu-item-4 { animation-delay: 165ms; }
   @media (hover: hover) and (pointer: fine) {
     .hover-spring { transition: transform .2s cubic-bezier(.23,1,.32,1), color .2s ease, background-color .2s ease; }
     .hover-spring:hover { transform: translateY(-2px) scale(1.015); }
@@ -130,11 +140,24 @@
   70%, 100% { transform: scale(1.55); opacity: 0; }
 }
 
+@keyframes mobile-menu-in {
+  from { opacity: 0; transform: scaleY(.94); }
+  to { opacity: 1; transform: scaleY(1); }
+}
+
+@keyframes mobile-menu-item-in {
+  to { opacity: 1; transform: translate3d(0, 0, 0); }
+}
+
 @media (max-width: 640px) {
   .whatsapp-float { right: 1rem; bottom: 1rem; }
   .whatsapp-icon, .whatsapp-pulse { height: 3.15rem; width: 3.15rem; }
   .whatsapp-icon svg { height: 1.8rem; width: 1.8rem; }
   .whatsapp-label { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mobile-menu-panel, .mobile-menu-item { animation: none; opacity: 1; transform: none; }
 }
 
 @media (min-width: 640px) { .container { padding-left: 2rem; padding-right: 2rem; } }
