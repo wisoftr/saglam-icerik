@@ -243,11 +243,11 @@ export default function Home() {
     <main className="min-h-screen overflow-hidden bg-ink text-cream selection:bg-lime selection:text-ink">
       <nav className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-ink/80 backdrop-blur-xl">
         <div className="container flex h-[76px] items-center justify-between">
-          <a href="#top" className="group flex items-center gap-3" aria-label="Sağlam İçerik ana sayfa">
+          <a href="#top" className="group flex items-center gap-3" aria-label="wisoft.tech ana sayfa">
             <span className="flex h-9 w-9 items-center justify-center rounded-full bg-lime text-sm font-black text-ink transition-transform duration-200 group-hover:rotate-12">
-              S/
+              W/
             </span>
-            <span className="font-display text-[15px] font-bold uppercase tracking-[0.14em]">Sağlam İçerik</span>
+            <span className="font-display text-[15px] font-bold uppercase tracking-[0.14em]">wisoft.tech</span>
           </a>
           <div className="hidden items-center gap-8 text-[12px] font-semibold uppercase tracking-[0.14em] text-cream/60 md:flex">
             <a className="transition-colors hover:text-lime" href="#hizmetler">Hizmetler</a>
@@ -304,7 +304,7 @@ export default function Home() {
               >
                 İşlerimize bakın <ArrowDown className="transition-transform duration-200 group-hover:translate-y-1" size={16} />
               </button>
-              <span className="text-xs font-semibold uppercase tracking-[0.15em] text-cream/35">25+ marka ile birlikte</span>
+              <span className="text-xs font-semibold uppercase tracking-[0.15em] text-cream/35">100+ farklı proje</span>
             </div>
           </div>
 
@@ -313,7 +313,7 @@ export default function Home() {
               Fikirden<br />etkiye
             </div>
             <div className="relative aspect-[.9] overflow-hidden rounded-[2rem] border border-white/15 bg-[#10172a] shadow-2xl shadow-black/40 sm:aspect-square">
-              <img src="/manus-storage/saglam-icerik-hero_437a3a92.jpg" alt="Sağlam İçerik için soyut dijital sanat çalışması" className="h-full w-full object-cover opacity-80 mix-blend-screen" />
+              <img src="/manus-storage/saglam-icerik-hero_437a3a92.jpg" alt="wisoft.tech için soyut dijital sanat çalışması" className="h-full w-full object-cover opacity-80 mix-blend-screen" />
               <div className="absolute inset-0 bg-gradient-to-t from-ink/85 via-transparent to-ink/10" />
               <div className="absolute bottom-5 left-5 right-5 flex items-end justify-between gap-4">
                 <div>
@@ -331,7 +331,7 @@ export default function Home() {
                   ))}
                 </div>
                 <div>
-                  <p className="text-xs font-bold text-cream">25+ proje</p>
+                  <p className="text-xs font-bold text-cream">100+ proje</p>
                   <p className="text-[10px] text-cream/45">ve devam ediyor</p>
                 </div>
               </div>
@@ -344,8 +344,8 @@ export default function Home() {
       <section className="border-y border-white/10 bg-ink-2">
         <div className="container grid divide-y divide-white/10 py-8 sm:grid-cols-3 sm:divide-x sm:divide-y-0 sm:py-0">
           {[
-            ["25+", "farklı marka"],
-            ["10 yıl", "süregelen ortaklık"],
+                    ["100+", "farklı proje"],
+                    ["20 yıl", "süregelen tecrübe"],
             ["360°", "dijital bakış"],
           ].map(([value, label]) => (
             <div key={label} className="flex items-center justify-between py-5 sm:block sm:px-8 sm:py-8 first:sm:pl-0 last:sm:pr-0">
@@ -500,7 +500,7 @@ export default function Home() {
 
       <footer className="border-t border-white/10 bg-ink py-8">
         <div className="container flex flex-col justify-between gap-6 sm:flex-row sm:items-center">
-          <div className="flex items-center gap-3"><span className="flex h-8 w-8 items-center justify-center rounded-full bg-lime text-xs font-black text-ink">S/</span><span className="text-xs font-bold uppercase tracking-[0.14em] text-cream/70">Sağlam İçerik</span></div>
+          <div className="flex items-center gap-3"><span className="flex h-8 w-8 items-center justify-center rounded-full bg-lime text-xs font-black text-ink">W/</span><span className="text-xs font-bold uppercase tracking-[0.14em] text-cream/70">wisoft.tech</span></div>
           <p className="text-[10px] font-semibold uppercase tracking-[0.15em] text-cream/30">Düşünürüz · Tasarlarız · Büyütürüz</p>
           <div className="flex items-center gap-3 text-cream/40"><a aria-label="Instagram" href="#top" className="transition-colors hover:text-lime"><Instagram size={16} /></a><a aria-label="LinkedIn" href="#top" className="transition-colors hover:text-lime"><Linkedin size={16} /></a><a aria-label="E-posta" href="#iletisim" className="transition-colors hover:text-lime"><Mail size={16} /></a></div>
         </div>
