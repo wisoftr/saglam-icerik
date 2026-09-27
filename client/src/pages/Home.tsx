@@ -363,7 +363,7 @@ export default function Home() {
               <p className="section-kicker text-ink/50">Ne yapıyoruz / 01</p>
               <h2 className="mt-5 max-w-[650px] font-display text-5xl font-black leading-[.92] tracking-[-0.065em] md:text-7xl">Markanızı tek bir <span className="text-cobalt">ekrandan</span> daha büyük düşünün.</h2>
             </div>
-            <p className="max-w-[300px] text-sm leading-relaxed text-ink/55">Birbirinden kopuk işler değil, birbirini büyüten temas noktaları tasarlıyoruz.</p>
+            <p className="max-w-[360px] text-base leading-relaxed text-ink/60 md:text-lg">Birbirinden kopuk işler değil, birbirini büyüten temas noktaları tasarlıyoruz.</p>
           </div>
           <div className="mt-20 grid gap-px overflow-hidden rounded-[1.6rem] border border-ink/10 bg-ink/10 md:grid-cols-2">
             {[
@@ -432,8 +432,8 @@ export default function Home() {
                   <h3 className="font-display text-2xl font-black leading-none tracking-[-0.05em]">{client.name}</h3>
                   <div className="mt-3 flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.1em] text-cobalt"><span className="h-1.5 w-1.5 rounded-full bg-lime-600" />{client.tag}</div>
                   <div className="mt-5 flex flex-wrap gap-1.5">
-                    {client.services.slice(0, 3).map((service) => <span key={service} className="rounded-full border border-ink/10 px-2 py-1 text-[9px] font-semibold text-ink/55">{service}</span>)}
-                    {client.services.length > 3 && <span className="rounded-full border border-ink/10 px-2 py-1 text-[9px] font-semibold text-ink/40">+{client.services.length - 3}</span>}
+                    {client.services.slice(0, 3).map((service) => <span key={service} className="rounded-full border border-ink/10 px-2.5 py-1.5 text-[11px] font-semibold leading-tight text-ink/55">{service}</span>)}
+                    {client.services.length > 3 && <span className="rounded-full border border-ink/10 px-2.5 py-1.5 text-[11px] font-semibold leading-tight text-ink/40">+{client.services.length - 3}</span>}
                   </div>
                   {client.period && <p className="mt-5 text-[10px] font-bold uppercase tracking-[0.12em] text-ink/35">{client.period}</p>}
                 </div>
