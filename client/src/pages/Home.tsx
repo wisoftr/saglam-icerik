@@ -280,6 +280,22 @@ export default function Home() {
         )}
       </nav>
 
+      <a
+        href="https://wa.me/905552696626?text=Merhaba%20wisoft.tech%2C%20projem%20hakk%C4%B1nda%20g%C3%B6r%C3%BC%C5%9Fmek%20istiyorum."
+        target="_blank"
+        rel="noreferrer"
+        aria-label="WhatsApp üzerinden wisoft.tech ile mesajlaşın"
+        className="whatsapp-float group"
+      >
+        <span className="whatsapp-pulse" aria-hidden="true" />
+        <span className="whatsapp-label">WhatsApp'tan yazın</span>
+        <span className="whatsapp-icon" aria-hidden="true">
+          <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M16.02 4.25c-6.48 0-11.74 5.26-11.74 11.74 0 2.07.54 4.08 1.57 5.85L4.2 27.75l6.05-1.59a11.7 11.7 0 0 0 5.77 1.52h.01c6.47 0 11.72-5.26 11.72-11.74S22.5 4.25 16.02 4.25Zm0 21.45h-.01a9.73 9.73 0 0 1-4.96-1.36l-.36-.21-3.59.94.96-3.5-.23-.36a9.71 9.71 0 0 1-1.49-5.22c0-5.38 4.38-9.76 9.77-9.76 2.6 0 5.05 1.02 6.89 2.87a9.68 9.68 0 0 1 2.86 6.9c0 5.38-4.38 9.76-9.74 9.76Zm5.35-7.31c-.29-.15-1.71-.84-1.98-.94-.27-.1-.46-.15-.65.15-.19.29-.74.94-.91 1.13-.17.2-.34.22-.63.07-.29-.15-1.2-.44-2.29-1.41-.85-.76-1.42-1.69-1.59-1.98-.17-.29-.02-.45.13-.6.13-.13.29-.34.44-.51.15-.17.19-.29.29-.48.1-.2.05-.37-.02-.52-.07-.15-.65-1.57-.89-2.15-.24-.56-.47-.49-.65-.5h-.55c-.2 0-.52.07-.79.37-.27.29-1.04 1.02-1.04 2.49s1.06 2.89 1.2 3.09c.15.2 2.09 3.19 5.07 4.48.71.31 1.27.5 1.71.64.72.23 1.38.2 1.9.12.58-.09 1.71-.7 1.95-1.37.24-.67.24-1.25.17-1.37-.07-.12-.27-.19-.56-.34Z" fill="currentColor" />
+          </svg>
+        </span>
+      </a>
+
       <section id="top" className="relative isolate flex min-h-[820px] items-end overflow-hidden pt-28">
         <div className="absolute inset-0 -z-20 bg-ink" />
         <div className="absolute -right-20 top-28 -z-10 h-[560px] w-[560px] rounded-full bg-lime/10 blur-[140px]" />
