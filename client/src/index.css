@@ -111,6 +111,18 @@
   .whatsapp-pulse { position: absolute; right: 0; bottom: 0; height: 3.5rem; width: 3.5rem; border-radius: 9999px; border: 2px solid #20c863; animation: whatsapp-pulse 2.2s ease-out infinite; }
   .whatsapp-label { max-width: 0; overflow: hidden; white-space: nowrap; border-radius: 9999px; background: #20c863; padding: 0; font-size: .68rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; opacity: 0; transition: max-width .25s cubic-bezier(.23,1,.32,1), padding .25s ease, opacity .2s ease; }
   .whatsapp-float:hover .whatsapp-label, .whatsapp-float:focus-visible .whatsapp-label { max-width: 10rem; padding: .7rem .9rem; opacity: 1; }
+  .reveal-ready [data-reveal] { opacity: 0; transform: translate3d(0, 1.5rem, 0); transition: opacity .65s cubic-bezier(.23,1,.32,1), transform .65s cubic-bezier(.23,1,.32,1); }
+  .reveal-ready [data-reveal="fade"] { transform: scale(.96); transition-duration: .8s; }
+  .reveal-ready [data-reveal].is-visible { opacity: 1; transform: none; }
+  .reveal-ready [data-reveal].is-visible:nth-child(2) { transition-delay: 60ms; }
+  .reveal-ready [data-reveal].is-visible:nth-child(3) { transition-delay: 110ms; }
+  .reveal-ready [data-reveal].is-visible:nth-child(4) { transition-delay: 160ms; }
+  .reveal-ready [data-reveal].is-visible:nth-child(5) { transition-delay: 210ms; }
+  .reveal-ready [data-reveal].is-visible:nth-child(6) { transition-delay: 260ms; }
+  @media (hover: hover) and (pointer: fine) {
+    .hover-spring { transition: transform .2s cubic-bezier(.23,1,.32,1), color .2s ease, background-color .2s ease; }
+    .hover-spring:hover { transform: translateY(-2px) scale(1.015); }
+  }
 }
 
 @keyframes whatsapp-pulse {

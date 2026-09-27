@@ -1,4 +1,4 @@
-import { FormEvent, useMemo, useState } from "react";
+import { FormEvent, useEffect, useMemo, useState } from "react";
 import {
   ArrowDown,
   ArrowUpRight,
@@ -215,7 +215,41 @@ const scrollToSection = (id: string) => {
   document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
 };
 
+function useScrollReveal() {
+  useEffect(() => {
+    const root = document.documentElement;
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reducedMotion || !("IntersectionObserver" in window)) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { rootMargin: "0px 0px -9% 0px", threshold: 0.08 },
+    );
+    root.classList.add("reveal-ready");
+    const observeTargets = (scope: ParentNode) => {
+      scope.querySelectorAll<HTMLElement>("[data-reveal]:not(.is-visible)").forEach((element) => observer.observe(element));
+    };
+    observeTargets(document);
+    const mutationObserver = new MutationObserver(() => observeTargets(document));
+    mutationObserver.observe(document.body, { childList: true, subtree: true });
+
+    return () => {
+      observer.disconnect();
+      mutationObserver.disconnect();
+      root.classList.remove("reveal-ready");
+    };
+  }, []);
+}
+
 export default function Home() {
+  useScrollReveal();
   const [activeFilter, setActiveFilter] = useState<Filter>("Tümü");
   const [showAll, setShowAll] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -243,7 +277,7 @@ export default function Home() {
     <main className="min-h-screen overflow-hidden bg-ink text-cream selection:bg-lime selection:text-ink">
       <nav className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-ink/80 backdrop-blur-xl">
         <div className="container flex h-[76px] items-center justify-between">
-          <a href="#top" className="group flex items-center gap-3" aria-label="wisoft.tech ana sayfa">
+          <a href="#top" data-reveal="fade" className="group flex items-center gap-3" aria-label="wisoft.tech ana sayfa">
             <span className="flex h-9 w-9 items-center justify-center rounded-full bg-lime text-sm font-black text-ink transition-transform duration-200 group-hover:rotate-12">
               W/
             </span>
@@ -301,7 +335,7 @@ export default function Home() {
         <div className="absolute -right-20 top-28 -z-10 h-[560px] w-[560px] rounded-full bg-lime/10 blur-[140px]" />
         <div className="absolute left-[16%] top-[32%] -z-10 h-56 w-56 rounded-full bg-cobalt/20 blur-[100px]" />
         <div className="container relative z-10 grid w-full gap-12 pb-20 lg:grid-cols-[1.05fr_.95fr] lg:items-end lg:gap-20 lg:pb-28">
-          <div className="max-w-[710px]">
+          <div data-reveal="up" className="max-w-[710px]">
             <div className="mb-8 inline-flex items-center gap-3 rounded-full border border-lime/30 bg-lime/5 px-3 py-2 text-[10px] font-bold uppercase tracking-[0.2em] text-lime">
               <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-lime" />
               Dijital deneyimler / 2016—2026
@@ -324,7 +358,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="relative mx-auto w-full max-w-[550px] lg:mb-1">
+          <div data-reveal="up" className="relative mx-auto w-full max-w-[550px] lg:mb-1">
             <div className="absolute -left-4 -top-4 z-10 flex h-20 w-20 rotate-[-10deg] items-center justify-center rounded-full bg-lime text-center text-[10px] font-black uppercase leading-tight tracking-[0.08em] text-ink shadow-[0_18px_45px_rgba(198,255,80,.18)]">
               Fikirden<br />etkiye
             </div>
@@ -364,7 +398,7 @@ export default function Home() {
                     ["20 yıl", "süregelen tecrübe"],
             ["360°", "dijital bakış"],
           ].map(([value, label]) => (
-            <div key={label} className="flex items-center justify-between py-5 sm:block sm:px-8 sm:py-8 first:sm:pl-0 last:sm:pr-0">
+            <div key={label} data-reveal="up" className="flex items-center justify-between py-5 sm:block sm:px-8 sm:py-8 first:sm:pl-0 last:sm:pr-0">
               <span className="font-display text-4xl font-black tracking-[-0.05em] text-lime">{value}</span>
               <span className="text-right text-[11px] font-bold uppercase tracking-[0.16em] text-cream/45 sm:mt-2 sm:block sm:text-left">{label}</span>
             </div>
@@ -375,7 +409,7 @@ export default function Home() {
       <section id="hizmetler" className="bg-paper py-28 text-ink md:py-36">
         <div className="container">
           <div className="flex flex-col justify-between gap-8 md:flex-row md:items-end">
-            <div className="max-w-[680px]">
+            <div data-reveal="up" className="max-w-[680px]">
               <p className="section-kicker text-ink/50">Ne yapıyoruz / 01</p>
               <h2 className="mt-5 max-w-[650px] font-display text-5xl font-black leading-[.92] tracking-[-0.065em] md:text-7xl">Markanızı tek bir <span className="text-cobalt">ekrandan</span> daha büyük düşünün.</h2>
             </div>
@@ -388,7 +422,7 @@ export default function Home() {
               { number: "03", icon: <Search size={24} />, title: "Büyüme & içerik", desc: "SEO, reklam, sosyal medya ve doğru mesajı doğru insana taşıyan içerik akışı.", tags: ["SEO", "Google Ads", "Sosyal medya"] },
               { number: "04", icon: <Bot size={24} />, title: "Sistem & otomasyon", desc: "CRM, lead yönetimi, B2B ve işinizi sessizce hızlandıran özel yazılımlar.", tags: ["CRM", "B2B", "Otomasyon"] },
             ].map((service) => (
-              <article key={service.number} className="group bg-paper p-8 transition-colors duration-200 hover:bg-[#e8e4d6] md:p-10">
+              <article key={service.number} data-reveal="up" className="group bg-paper p-8 transition-colors duration-200 hover:bg-[#e8e4d6] md:p-10">
                 <div className="flex items-start justify-between">
                   <div className="flex h-12 w-12 items-center justify-center rounded-full border border-ink/15 text-cobalt transition-all duration-200 group-hover:border-cobalt group-hover:bg-cobalt group-hover:text-paper">{service.icon}</div>
                   <span className="font-display text-sm font-bold text-ink/30">{service.number}</span>
@@ -412,7 +446,7 @@ export default function Home() {
             <p className="section-kicker text-ink/50">Bakış açımız / 02</p>
             <div className="mt-5 flex items-center gap-4 text-sm font-bold uppercase tracking-[0.14em]"><span className="h-px w-12 bg-ink/40" /> Sağlam düşünce</div>
           </div>
-          <blockquote className="max-w-[850px] font-display text-5xl font-black leading-[.93] tracking-[-0.07em] md:text-7xl">“İyi görünmek yetmez. <span className="text-cobalt">İş görmeli.</span>”</blockquote>
+          <blockquote data-reveal="up" className="max-w-[850px] font-display text-5xl font-black leading-[.93] tracking-[-0.07em] md:text-7xl">“İyi görünmek yetmez. <span className="text-cobalt">İş görmeli.</span>”</blockquote>
         </div>
       </section>
 
@@ -439,7 +473,7 @@ export default function Home() {
           </div>
           <div className="grid gap-4 pt-8 md:grid-cols-2 lg:grid-cols-4">
             {visibleClients.map((client, index) => (
-              <article key={client.name} className="group relative flex min-h-[250px] flex-col justify-between overflow-hidden rounded-[1.35rem] border border-ink/10 bg-[#eeeadf] p-6 transition-all duration-300 hover:-translate-y-1 hover:border-cobalt/40 hover:shadow-xl hover:shadow-ink/10">
+              <article key={client.name} data-reveal="up" className="group relative flex min-h-[250px] flex-col justify-between overflow-hidden rounded-[1.35rem] border border-ink/10 bg-[#eeeadf] p-6 transition-all duration-300 hover:-translate-y-1 hover:border-cobalt/40 hover:shadow-xl hover:shadow-ink/10">
                 <div className="flex items-start justify-between gap-4">
                   <span className="font-display text-2xl font-black tracking-[-0.06em] text-ink/20">{String(index + 1).padStart(2, "0")}</span>
                   <span className="rounded-full bg-white/60 px-2.5 py-1 text-[9px] font-bold uppercase tracking-[0.1em] text-ink/45">{client.category}</span>
@@ -480,7 +514,7 @@ export default function Home() {
                 ["03", "Üretiriz", "Stratejiyi tasarım, içerik ve teknolojiyle görünür hale getiririz."],
                 ["04", "Büyütürüz", "İş yayına girdikten sonra da ölçer, iyileştirir ve yanında kalırız."],
               ].map(([number, title, description]) => (
-                <div key={number} className="group grid gap-5 py-7 sm:grid-cols-[70px_180px_1fr] sm:items-start sm:gap-8">
+                <div key={number} data-reveal="up" className="group grid gap-5 py-7 sm:grid-cols-[70px_180px_1fr] sm:items-start sm:gap-8">
                   <span className="font-display text-sm font-bold text-lime">{number}</span>
                   <h3 className="font-display text-2xl font-black tracking-[-0.04em] text-cream transition-colors group-hover:text-lime">{title}</h3>
                   <p className="max-w-[420px] text-sm leading-relaxed text-cream/50">{description}</p>
@@ -493,7 +527,7 @@ export default function Home() {
 
       <section id="iletisim" className="bg-paper py-28 text-ink md:py-36">
         <div className="container grid gap-16 lg:grid-cols-[.9fr_1.1fr] lg:items-end">
-          <div>
+          <div data-reveal="up">
             <p className="section-kicker text-ink/50">Birlikte yapalım / 05</p>
             <h2 className="mt-5 max-w-[600px] font-display text-6xl font-black leading-[.84] tracking-[-0.075em] md:text-8xl">Sıradaki<br /><span className="text-cobalt">iyi fikir</span> nedir?</h2>
             <p className="mt-8 max-w-[390px] text-base leading-relaxed text-ink/55">Kısa bir not bırakın. Fikrinizi dinleyelim, nereden başlayabileceğimize birlikte bakalım.</p>
@@ -502,7 +536,7 @@ export default function Home() {
               <span className="flex items-center gap-2"><MessageCircle size={15} className="text-cobalt" /> Yanıt süresi: 1–2 gün</span>
             </div>
           </div>
-          <form onSubmit={handleSubmit} className="rounded-[1.5rem] border border-ink/10 bg-[#eeeadf] p-6 sm:p-8">
+          <form data-reveal="up" onSubmit={handleSubmit} className="rounded-[1.5rem] border border-ink/10 bg-[#eeeadf] p-6 sm:p-8">
             <div className="grid gap-5 sm:grid-cols-2">
               <label className="field-label">Adınız<input required name="name" placeholder="Ad Soyad" className="field-input" /></label>
               <label className="field-label">E-posta<input required type="email" name="email" placeholder="siz@ornek.com" className="field-input" /></label>
