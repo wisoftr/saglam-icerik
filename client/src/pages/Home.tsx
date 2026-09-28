@@ -230,17 +230,23 @@ function useScrollReveal() {
           }
         });
       },
-      { rootMargin: "0px 0px -9% 0px", threshold: 0.08 },
+      { rootMargin: "0px 0px -5% 0px", threshold: 0.01 },
     );
     root.classList.add("reveal-ready");
     const observeTargets = (scope: ParentNode) => {
-      scope.querySelectorAll<HTMLElement>("[data-reveal]:not(.is-visible)").forEach((element) => observer.observe(element));
+      scope.querySelectorAll<HTMLElement>("[data-reveal]:not(.is-visible)").forEach((element) => {
+        observer.observe(element);
+        const bounds = element.getBoundingClientRect();
+        if (bounds.top < window.innerHeight * 0.94 && bounds.bottom > 0) element.classList.add("is-visible");
+      });
     };
     observeTargets(document);
+    const firstFrame = window.requestAnimationFrame(() => observeTargets(document));
     const mutationObserver = new MutationObserver(() => observeTargets(document));
     mutationObserver.observe(document.body, { childList: true, subtree: true });
 
     return () => {
+      window.cancelAnimationFrame(firstFrame);
       observer.disconnect();
       mutationObserver.disconnect();
       root.classList.remove("reveal-ready");
@@ -298,12 +304,14 @@ export default function Home() {
             className="rounded-full border border-white/15 p-2 text-cream md:hidden"
             onClick={() => setMenuOpen((value) => !value)}
             aria-label={menuOpen ? "Menüyü kapat" : "Menüyü aç"}
+            aria-expanded={menuOpen}
+            aria-controls="mobile-navigation"
           >
             {menuOpen ? <X size={20} /> : <Menu size={20} />}
           </button>
         </div>
         {menuOpen && (
-          <div className="mobile-menu-panel border-t border-white/10 bg-ink px-5 py-5 md:hidden">
+          <div id="mobile-navigation" className="mobile-menu-panel border-t border-white/10 bg-ink px-5 py-5 md:hidden">
             <div className="flex flex-col gap-4 text-sm font-semibold uppercase tracking-[0.14em] text-cream/70">
               <a className="mobile-menu-item mobile-menu-item-1" href="#hizmetler" onClick={() => setMenuOpen(false)}>Hizmetler</a>
               <a className="mobile-menu-item mobile-menu-item-2" href="#referanslar" onClick={() => setMenuOpen(false)}>Referanslar</a>
@@ -443,8 +451,12 @@ export default function Home() {
       </section>
 
       <section className="relative overflow-hidden bg-lime py-24 text-ink md:py-32">
-        <div className="absolute -right-16 top-1/2 h-80 w-80 -translate-y-1/2 rounded-full border-[1px] border-ink/15" />
-        <div className="absolute -right-2 top-1/2 h-52 w-52 -translate-y-1/2 rounded-full border-[1px] border-ink/15" />
+        <div className="perspective-rings" aria-hidden="true">
+          <span className="perspective-ring perspective-ring-1" />
+          <span className="perspective-ring perspective-ring-2" />
+          <span className="perspective-ring perspective-ring-3" />
+          <span className="perspective-ring-core" />
+        </div>
         <div className="container relative grid gap-10 lg:grid-cols-[.8fr_1.2fr] lg:items-end">
           <div>
             <p className="section-kicker text-ink/50">Bakış açımız / 02</p>
