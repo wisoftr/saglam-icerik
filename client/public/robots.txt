@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://saglamport-fwbdqgdq.manus.space/sitemap.xml
+Sitemap: https://wisoft-tech.vercel.app/sitemap.xml
