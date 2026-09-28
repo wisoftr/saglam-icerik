@@ -421,7 +421,7 @@ export default function Home() {
               <p className="section-kicker text-ink/50">Ne yapıyoruz / 01</p>
               <h2 className="mt-5 max-w-[650px] font-display text-5xl font-black leading-[.92] tracking-[-0.065em] md:text-7xl">Markanızı tek bir <span className="text-cobalt">ekrandan</span> daha büyük düşünün.</h2>
             </div>
-            <p className="max-w-[360px] text-base leading-relaxed text-ink/60 md:text-lg">Birbirinden kopuk işler değil, birbirini büyüten temas noktaları tasarlıyoruz.</p>
+            <p data-reveal="up" className="max-w-[360px] text-base leading-relaxed text-ink/60 md:text-lg">Birbirinden kopuk işler değil, birbirini büyüten temas noktaları tasarlıyoruz.</p>
           </div>
           <div className="mt-20 grid gap-px overflow-hidden rounded-[1.6rem] border border-ink/10 bg-ink/10 md:grid-cols-2">
             {[
@@ -458,7 +458,7 @@ export default function Home() {
           <span className="perspective-ring-core" />
         </div>
         <div className="container relative grid gap-10 lg:grid-cols-[.8fr_1.2fr] lg:items-end">
-          <div>
+          <div data-reveal="up">
             <p className="section-kicker text-ink/50">Bakış açımız / 02</p>
             <div className="mt-5 flex items-center gap-4 text-sm font-bold uppercase tracking-[0.14em]"><span className="h-px w-12 bg-ink/40" /> Sağlam düşünce</div>
           </div>
@@ -469,11 +469,11 @@ export default function Home() {
       <section id="referanslar" className="bg-paper py-28 text-ink md:py-36">
         <div className="container">
           <div className="flex flex-col justify-between gap-8 lg:flex-row lg:items-end">
-            <div>
+            <div data-reveal="up">
               <p className="section-kicker text-ink/50">Seçili işler / 03</p>
               <h2 className="mt-5 font-display text-5xl font-black leading-[.9] tracking-[-0.065em] md:text-7xl">Birlikte<br /><span className="text-cobalt">neler yaptık?</span></h2>
             </div>
-            <div className="max-w-[360px] text-sm leading-relaxed text-ink/55">Farklı sektörlerden, farklı ihtiyaçlardan; ortak bir yerden bakıyoruz: işin özüne.</div>
+            <div data-reveal="up" className="max-w-[360px] text-sm leading-relaxed text-ink/55">Farklı sektörlerden, farklı ihtiyaçlardan; ortak bir yerden bakıyoruz: işin özüne.</div>
           </div>
           <div className="mt-12 flex flex-wrap gap-2 border-b border-ink/10 pb-6">
             {filters.map((filter) => (
@@ -518,7 +518,7 @@ export default function Home() {
       <section id="surec" className="bg-ink-2 py-28 md:py-36">
         <div className="container">
           <div className="grid gap-16 lg:grid-cols-[.7fr_1.3fr]">
-            <div>
+            <div data-reveal="up">
               <p className="section-kicker text-cream/45">Çalışma biçimimiz / 04</p>
               <h2 className="mt-5 font-display text-5xl font-black leading-[.9] tracking-[-0.065em] md:text-7xl">Netlikten<br /><span className="text-lime">sonuca.</span></h2>
               <p className="mt-8 max-w-[300px] text-sm leading-relaxed text-cream/55">İyi bir işin sırrı, süreci karmaşıklaştırmak değil; doğru soruları en başta sormak.</p>

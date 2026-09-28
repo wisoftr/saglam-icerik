@@ -182,6 +182,7 @@
 
 @media (prefers-reduced-motion: reduce) {
   .mobile-menu-panel, .mobile-menu-item, .perspective-ring, .perspective-ring-core { animation: none; opacity: 1; transform: none; }
+  .perspective-ring-core { transform: translate(-50%, -50%); }
   .reveal-ready [data-reveal] { opacity: 1; transform: none; transition: none; }
 }
 
