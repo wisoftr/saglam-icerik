@@ -268,8 +268,22 @@ export default function Home() {
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    toast.success("Mesajınız alındı.", {
-      description: "Form bağlantısı demo olarak hazır. Gönderim adresi yayına almadan önce bağlanabilir.",
+    const formData = new FormData(event.currentTarget);
+    const name = String(formData.get("name") ?? "").trim();
+    const email = String(formData.get("email") ?? "").trim();
+    const message = String(formData.get("message") ?? "").trim();
+    const whatsappMessage = [
+      "Merhaba wisoft.tech, yeni proje talebim var.",
+      "",
+      `Ad Soyad: ${name}`,
+      `E-posta: ${email}`,
+      "",
+      "Proje detayları:",
+      message,
+    ].join("\n");
+    window.open(`https://wa.me/905552696626?text=${encodeURIComponent(whatsappMessage)}`, "_blank", "noopener,noreferrer");
+    toast.success("WhatsApp açılıyor.", {
+      description: "Mesajınız hazırlandı; WhatsApp üzerinden gönderimi tamamlayabilirsiniz.",
     });
     event.currentTarget.reset();
   };
@@ -559,7 +573,7 @@ export default function Home() {
             </div>
             <label className="field-label mt-5">Projeniz<textarea required name="message" rows={5} placeholder="Ne üzerine birlikte çalışalım?" className="field-input resize-none" /></label>
             <button type="submit" className="mt-6 flex w-full items-center justify-between rounded-xl bg-ink px-5 py-4 text-xs font-black uppercase tracking-[0.15em] text-lime transition-all duration-200 hover:bg-cobalt hover:text-paper active:scale-[.99]">Mesajı gönder <Send size={16} /></button>
-            <p className="mt-4 flex items-center gap-2 text-[10px] leading-relaxed text-ink/35"><Check size={13} /> Form gönderim bağlantısı yayına alma aşamasında özelleştirilebilir.</p>
+            <p className="mt-4 flex items-center gap-2 text-[10px] leading-relaxed text-ink/35"><Check size={13} /> Form gönderildiğinde bilgileriniz WhatsApp mesajı olarak hazırlanır.</p>
           </form>
         </div>
       </section>
