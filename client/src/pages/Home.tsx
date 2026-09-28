@@ -363,7 +363,7 @@ export default function Home() {
               Fikirden<br />etkiye
             </div>
             <div className="relative aspect-[.9] overflow-hidden rounded-[2rem] border border-white/15 bg-[#10172a] shadow-2xl shadow-black/40 sm:aspect-square">
-              <img src="/manus-storage/saglam-icerik-hero-optimized_4fe3c586.webp" alt="wisoft.tech için soyut dijital sanat çalışması" width="1600" height="900" loading="eager" fetchPriority="high" decoding="async" className="h-full w-full object-cover opacity-80 mix-blend-screen" />
+              <img src="/images/hero.webp" alt="wisoft.tech için soyut dijital sanat çalışması" width="1600" height="900" loading="eager" fetchPriority="high" decoding="async" className="h-full w-full object-cover opacity-80 mix-blend-screen" />
               <div className="absolute inset-0 bg-gradient-to-t from-ink/85 via-transparent to-ink/10" />
               <div className="absolute bottom-5 left-5 right-5 flex items-end justify-between gap-4">
                 <div>
@@ -417,10 +417,10 @@ export default function Home() {
           </div>
           <div className="mt-20 grid gap-px overflow-hidden rounded-[1.6rem] border border-ink/10 bg-ink/10 md:grid-cols-2">
             {[
-              { number: "01", icon: <Code2 size={24} />, title: "Dijital deneyim", desc: "Web siteleri, e-ticaret, QR menüler ve markanın ilk bakışta güven veren dijital yüzü.", tags: ["Web sitesi", "E-ticaret", "QR menü"], image: "/manus-storage/service-strategy-optimized_e882a7d3.webp" },
-              { number: "02", icon: <PenTool size={24} />, title: "Marka & görsel dil", desc: "Logo, ambalaj, kurumsal kimlik ve her yerde tutarlı görünen bir marka sistemi.", tags: ["Logo", "Ambalaj", "Kurumsal kimlik"], image: "/manus-storage/service-design-optimized_afb70c26.webp" },
-              { number: "03", icon: <Search size={24} />, title: "Büyüme & içerik", desc: "SEO, reklam, sosyal medya ve doğru mesajı doğru insana taşıyan içerik akışı.", tags: ["SEO", "Google Ads", "Sosyal medya"], image: "/manus-storage/service-growth-optimized_a7c0a31f.webp" },
-              { number: "04", icon: <Bot size={24} />, title: "Sistem & otomasyon", desc: "CRM, lead yönetimi, B2B ve işinizi sessizce hızlandıran özel yazılımlar.", tags: ["CRM", "B2B", "Otomasyon"], image: "/manus-storage/service-build-optimized_52fcf82d.webp" },
+              { number: "01", icon: <Code2 size={24} />, title: "Dijital deneyim", desc: "Web siteleri, e-ticaret, QR menüler ve markanın ilk bakışta güven veren dijital yüzü.", tags: ["Web sitesi", "E-ticaret", "QR menü"], image: "/images/service-strategy.webp" },
+              { number: "02", icon: <PenTool size={24} />, title: "Marka & görsel dil", desc: "Logo, ambalaj, kurumsal kimlik ve her yerde tutarlı görünen bir marka sistemi.", tags: ["Logo", "Ambalaj", "Kurumsal kimlik"], image: "/images/service-design.webp" },
+              { number: "03", icon: <Search size={24} />, title: "Büyüme & içerik", desc: "SEO, reklam, sosyal medya ve doğru mesajı doğru insana taşıyan içerik akışı.", tags: ["SEO", "Google Ads", "Sosyal medya"], image: "/images/service-growth.webp" },
+              { number: "04", icon: <Bot size={24} />, title: "Sistem & otomasyon", desc: "CRM, lead yönetimi, B2B ve işinizi sessizce hızlandıran özel yazılımlar.", tags: ["CRM", "B2B", "Otomasyon"], image: "/images/service-build.webp" },
             ].map((service) => (
               <article key={service.number} data-reveal="up" data-reveal-delay={service.number} className="group bg-paper p-8 transition-colors duration-200 hover:bg-[#e8e4d6] md:p-10">
                 <div className="relative mb-8 aspect-[3/2] overflow-hidden rounded-[1.15rem] bg-ink-2">
