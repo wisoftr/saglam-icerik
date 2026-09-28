@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://saglamport-fwbdqgdq.manus.space/sitemap.xml
