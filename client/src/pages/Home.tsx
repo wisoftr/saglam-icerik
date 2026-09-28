@@ -363,7 +363,7 @@ export default function Home() {
               Fikirden<br />etkiye
             </div>
             <div className="relative aspect-[.9] overflow-hidden rounded-[2rem] border border-white/15 bg-[#10172a] shadow-2xl shadow-black/40 sm:aspect-square">
-              <img src="/manus-storage/saglam-icerik-hero_437a3a92.jpg" alt="wisoft.tech için soyut dijital sanat çalışması" className="h-full w-full object-cover opacity-80 mix-blend-screen" />
+              <img src="/manus-storage/saglam-icerik-hero-optimized_4fe3c586.webp" alt="wisoft.tech için soyut dijital sanat çalışması" width="1600" height="900" loading="eager" fetchPriority="high" decoding="async" className="h-full w-full object-cover opacity-80 mix-blend-screen" />
               <div className="absolute inset-0 bg-gradient-to-t from-ink/85 via-transparent to-ink/10" />
               <div className="absolute bottom-5 left-5 right-5 flex items-end justify-between gap-4">
                 <div>
