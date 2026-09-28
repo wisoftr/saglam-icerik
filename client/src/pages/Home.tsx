@@ -417,12 +417,16 @@ export default function Home() {
           </div>
           <div className="mt-20 grid gap-px overflow-hidden rounded-[1.6rem] border border-ink/10 bg-ink/10 md:grid-cols-2">
             {[
-              { number: "01", icon: <Code2 size={24} />, title: "Dijital deneyim", desc: "Web siteleri, e-ticaret, QR menüler ve markanın ilk bakışta güven veren dijital yüzü.", tags: ["Web sitesi", "E-ticaret", "QR menü"] },
-              { number: "02", icon: <PenTool size={24} />, title: "Marka & görsel dil", desc: "Logo, ambalaj, kurumsal kimlik ve her yerde tutarlı görünen bir marka sistemi.", tags: ["Logo", "Ambalaj", "Kurumsal kimlik"] },
-              { number: "03", icon: <Search size={24} />, title: "Büyüme & içerik", desc: "SEO, reklam, sosyal medya ve doğru mesajı doğru insana taşıyan içerik akışı.", tags: ["SEO", "Google Ads", "Sosyal medya"] },
-              { number: "04", icon: <Bot size={24} />, title: "Sistem & otomasyon", desc: "CRM, lead yönetimi, B2B ve işinizi sessizce hızlandıran özel yazılımlar.", tags: ["CRM", "B2B", "Otomasyon"] },
+              { number: "01", icon: <Code2 size={24} />, title: "Dijital deneyim", desc: "Web siteleri, e-ticaret, QR menüler ve markanın ilk bakışta güven veren dijital yüzü.", tags: ["Web sitesi", "E-ticaret", "QR menü"], image: "/manus-storage/service-strategy-optimized_e882a7d3.webp" },
+              { number: "02", icon: <PenTool size={24} />, title: "Marka & görsel dil", desc: "Logo, ambalaj, kurumsal kimlik ve her yerde tutarlı görünen bir marka sistemi.", tags: ["Logo", "Ambalaj", "Kurumsal kimlik"], image: "/manus-storage/service-design-optimized_afb70c26.webp" },
+              { number: "03", icon: <Search size={24} />, title: "Büyüme & içerik", desc: "SEO, reklam, sosyal medya ve doğru mesajı doğru insana taşıyan içerik akışı.", tags: ["SEO", "Google Ads", "Sosyal medya"], image: "/manus-storage/service-growth-optimized_a7c0a31f.webp" },
+              { number: "04", icon: <Bot size={24} />, title: "Sistem & otomasyon", desc: "CRM, lead yönetimi, B2B ve işinizi sessizce hızlandıran özel yazılımlar.", tags: ["CRM", "B2B", "Otomasyon"], image: "/manus-storage/service-build-optimized_52fcf82d.webp" },
             ].map((service) => (
               <article key={service.number} data-reveal="up" data-reveal-delay={service.number} className="group bg-paper p-8 transition-colors duration-200 hover:bg-[#e8e4d6] md:p-10">
+                <div className="relative mb-8 aspect-[3/2] overflow-hidden rounded-[1.15rem] bg-ink-2">
+                  <img src={service.image} alt={`${service.title} hizmet görseli`} loading="lazy" decoding="async" className="h-full w-full object-cover opacity-90 transition-transform duration-500 ease-out group-hover:scale-105" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-ink/50 via-transparent to-transparent" aria-hidden="true" />
+                </div>
                 <div className="flex items-start justify-between">
                   <div className="flex h-12 w-12 items-center justify-center rounded-full border border-ink/15 text-cobalt transition-all duration-200 group-hover:border-cobalt group-hover:bg-cobalt group-hover:text-paper">{service.icon}</div>
                   <span className="font-display text-sm font-bold text-ink/30">{service.number}</span>
