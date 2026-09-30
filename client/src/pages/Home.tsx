@@ -271,12 +271,14 @@ export default function Home() {
     const formData = new FormData(event.currentTarget);
     const name = String(formData.get("name") ?? "").trim();
     const email = String(formData.get("email") ?? "").trim();
+    const serviceType = String(formData.get("serviceType") ?? "").trim();
     const message = String(formData.get("message") ?? "").trim();
     const whatsappMessage = [
       "Merhaba wisoft.tech, yeni proje talebim var.",
       "",
       `Ad Soyad: ${name}`,
       `E-posta: ${email}`,
+      `Hizmet türü: ${serviceType}`,
       "",
       "Proje detayları:",
       message,
@@ -570,6 +572,17 @@ export default function Home() {
             <div className="grid gap-5 sm:grid-cols-2">
               <label className="field-label">Adınız<input required name="name" placeholder="Ad Soyad" className="field-input" /></label>
               <label className="field-label">E-posta<input required type="email" name="email" placeholder="siz@ornek.com" className="field-input" /></label>
+              <label className="field-label sm:col-span-2">İlgilendiğiniz hizmet
+                <select required name="serviceType" defaultValue="" className="field-input appearance-none">
+                  <option value="" disabled>Hizmet türü seçin</option>
+                  <option value="Web sitesi ve dijital deneyim">Web sitesi ve dijital deneyim</option>
+                  <option value="Marka ve görsel kimlik">Marka ve görsel kimlik</option>
+                  <option value="SEO, reklam ve içerik">SEO, reklam ve içerik</option>
+                  <option value="CRM, otomasyon ve özel yazılım">CRM, otomasyon ve özel yazılım</option>
+                  <option value="Birden fazla hizmet / kapsamlı proje">Birden fazla hizmet / kapsamlı proje</option>
+                  <option value="Emin değilim, birlikte değerlendirelim">Emin değilim, birlikte değerlendirelim</option>
+                </select>
+              </label>
             </div>
             <label className="field-label mt-5">Projeniz<textarea required name="message" rows={5} placeholder="Ne üzerine birlikte çalışalım?" className="field-input resize-none" /></label>
             <button type="submit" className="mt-6 flex w-full items-center justify-between rounded-xl bg-ink px-5 py-4 text-xs font-black uppercase tracking-[0.15em] text-lime transition-all duration-200 hover:bg-cobalt hover:text-paper active:scale-[.99]">Mesajı gönder <Send size={16} /></button>
