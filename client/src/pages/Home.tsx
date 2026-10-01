@@ -369,7 +369,7 @@ export default function Home() {
               <span className="text-lime">iz bırakırız.</span>
             </h1>
             <p className="mt-9 max-w-[520px] text-lg leading-relaxed text-cream/65 md:text-xl">
-              Markaların kendini daha net anlatması, daha iyi görünmesi ve daha çok iş yapması için tasarım, teknoloji ve büyümeyi aynı masada buluşturuyoruz.
+              İstanbul merkezli dijital deneyim stüdyosu olarak markaların kendini daha net anlatması, daha iyi görünmesi ve daha çok iş yapması için tasarım, teknoloji ve büyümeyi aynı masada buluşturuyoruz.
             </p>
             <div className="mt-10 flex flex-wrap items-center gap-4">
               <button
@@ -557,10 +557,36 @@ export default function Home() {
         </div>
       </section>
 
+      <section id="sss" className="bg-paper py-28 text-ink md:py-36">
+        <div className="container grid gap-12 lg:grid-cols-[.8fr_1.2fr]">
+          <div data-reveal="up">
+            <p className="section-kicker text-ink/50">Sık sorulanlar / 05</p>
+            <h2 className="mt-5 max-w-[520px] font-display text-5xl font-black leading-[.9] tracking-[-0.065em] md:text-7xl">Doğru soruya<br /><span className="text-cobalt">net cevap.</span></h2>
+            <p className="mt-7 max-w-[380px] text-base leading-relaxed text-ink/55">Web tasarım, SEO, marka ve otomasyon hizmetlerimiz hakkında en çok merak edilenleri kısa ve anlaşılır biçimde yanıtladık.</p>
+          </div>
+          <div className="divide-y divide-ink/10 rounded-[1.5rem] border border-ink/10 bg-[#eeeadf] px-6 sm:px-8">
+            {[
+              ["wisoft.tech hangi hizmetleri sunuyor?", "Web tasarım ve dijital deneyim, marka ve görsel kimlik, SEO-reklam-içerik, CRM, otomasyon ve özel yazılım hizmetleri sunuyoruz."],
+              ["Web tasarım süreciniz nasıl ilerliyor?", "Önce ihtiyacı dinliyor, doğru kapsamı çerçeveliyor, tasarım ve teknolojiyle üretiyor; yayından sonra ölçüp büyütüyoruz."],
+              ["İstanbul dışındaki markalarla çalışıyor musunuz?", "Evet. İstanbul merkezli olarak Türkiye genelindeki markalarla uzaktan ve hibrit çalışma modelleriyle çalışıyoruz."],
+              ["Proje teklifi almak için ne yapmalıyım?", "İletişim formundan hizmet türünü seçip adınızı, e-postanızı ve proje detaylarınızı gönderin. Bilgileriniz WhatsApp üzerinden ekibe iletilir."],
+            ].map(([question, answer]) => (
+              <details key={question} data-reveal="up" className="group py-6">
+                <summary className="flex cursor-pointer list-none items-center justify-between gap-6 font-display text-xl font-black tracking-[-0.04em] marker:hidden">
+                  {question}
+                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-ink/15 text-2xl font-normal leading-none text-cobalt transition-transform duration-200 group-open:rotate-45">+</span>
+                </summary>
+                <p className="mt-4 max-w-[650px] text-sm leading-relaxed text-ink/60">{answer}</p>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section id="iletisim" className="bg-paper py-28 text-ink md:py-36">
         <div className="container grid gap-16 lg:grid-cols-[.9fr_1.1fr] lg:items-end">
           <div data-reveal="up">
-            <p className="section-kicker text-ink/50">Birlikte yapalım / 05</p>
+            <p className="section-kicker text-ink/50">Birlikte yapalım / 06</p>
             <h2 className="mt-5 max-w-[600px] font-display text-6xl font-black leading-[.84] tracking-[-0.075em] md:text-8xl">Sıradaki<br /><span className="text-cobalt">iyi fikir</span> nedir?</h2>
             <p className="mt-8 max-w-[390px] text-base leading-relaxed text-ink/55">Kısa bir not bırakın. Fikrinizi dinleyelim, nereden başlayabileceğimize birlikte bakalım.</p>
             <div className="mt-10 flex flex-wrap gap-4 text-xs font-bold uppercase tracking-[0.12em] text-ink/55">
